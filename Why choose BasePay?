@@ -1,0 +1,4 @@
+Base Pay addresses many pain points associated with traditional and even other blockchain-based payment systems. By leveraging USDC on the Base network, it offers a stable, dollar-pegged cryptocurrency that avoids the volatility of other digital assets. The elimination of chargebacks and foreign exchange fees makes it particularly attractive for global businesses. Additionally, the integration with Base Accounts ensures a user-friendly experience, as users can pay directly from their smart wallets without needing to manage complex wallet connections or gas fees.
+
+For developers, Base Pay’s SDK provides a straightforward API to integrate payments into applications, whether built with React, Wagmi, or plain HTML and JavaScript. The system is also designed to work alongside existing wallet solutions, making it versatile for various development environments.
+
