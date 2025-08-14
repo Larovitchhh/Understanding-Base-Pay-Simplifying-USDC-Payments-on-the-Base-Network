@@ -1,0 +1,10 @@
+Brand Guidelines: Always adhere to Base’s Brand Guidelines when using components like BasePayButton to ensure a consistent user experience.
+
+Security: When collecting user data, use a callbackURL for server-side validation to ensure data integrity.
+
+Testing: Use the Base Sepolia testnet for development to avoid real-world financial implications.
+
+Error Handling: Implement robust error handling to manage failed payments or user rejections gracefully.
+
+Nonce Management: For authentication-related features (e.g., Sign in with Base), ensure nonces are unique and tracked server-side to prevent replay attacks.
+
