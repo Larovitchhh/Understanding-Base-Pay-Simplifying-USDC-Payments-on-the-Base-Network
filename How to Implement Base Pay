@@ -1,0 +1,27 @@
+The Base Account SDK provides two primary methods for implementing Base Pay: the pay() function for initiating payments and the getPaymentStatus() function for checking transaction status. Below is a step-by-step guide to integrating Base Pay into a web application, based on the official documentation.
+
+Client-Side Implementation (Browser SDK)To initiate a payment, developers can use the pay() function. Here’s an example of how to trigger a USDC payment:javascript
+
+import { pay, getPaymentStatus } from '@base-org/account';
+
+// Trigger a payment
+try {
+  const payment = await pay({
+    amount: '1.00', // USD amount (converted to USDC internally)
+    to: '0xRecipient', // Recipient address
+    testnet: true // Set to false for Mainnet
+  });
+
+  // Poll for payment status
+  const { status } = await getPaymentStatus({
+    id: payment.id,
+    testnet: true // Must match the testnet setting in pay()
+  });
+
+  if (status === 'completed') {
+    console.log('🎉 Payment settled');
+  }
+} catch (error) {
+  console.error(`Payment failed: ${error.message}`);
+}
+
