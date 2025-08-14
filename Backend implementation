@@ -1,0 +1,17 @@
+To check payment status on the backend, use the getPaymentStatus() function:javascript
+
+import { getPaymentStatus } from '@base-org/account';
+
+export async function checkPayment(txId, testnet = false) {
+  const status = await getPaymentStatus({
+    id: txId,
+    testnet
+  });
+
+  if (status.status === 'completed') {
+    // Fulfill order
+  }
+}
+
+This ensures that payments are verified server-side, maintaining security and reliability.
+
