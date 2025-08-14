@@ -1,0 +1,28 @@
+For a native look and feel, developers can use the BasePayButton component:javascript
+
+import { BasePayButton } from '@base-org/account-ui/react';
+import { pay } from '@base-org/account';
+
+export function Checkout() {
+  const handlePayment = async () => {
+    try {
+      const payment = await pay({
+        amount: '5.00',
+        to: '0xRecipient'
+      });
+      console.log(`Payment sent! Transaction ID: ${payment.id}`);
+    } catch (error) {
+      console.error(`Payment failed: ${error.message}`);
+    }
+  };
+
+  return (
+    <BasePayButton
+      colorScheme="light"
+      onClick={handlePayment}
+    />
+  );
+}
+
+Developers must follow the Base Brand Guidelines to ensure consistency when using the BasePayButton.
+
