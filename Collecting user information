@@ -1,0 +1,35 @@
+Base Pay allows developers to collect optional user data, such as email or shipping addresses, during the payment process. This is done by passing a payerInfo object to the pay() function:javascript
+
+try {
+  const payment = await pay({
+    amount: '25.00',
+    to: '0xRecipient',
+    payerInfo: {
+      requests: [
+        { type: 'email' },
+        { type: 'phoneNumber', optional: true },
+        { type: 'physicalAddress', optional: true }
+      ],
+      callbackURL: 'https://your-api.com/validate' // Optional for server-side validation
+    }
+  });
+
+  console.log(`Payment sent! Transaction ID: ${payment.id}`);
+  if (payment.payerInfoResponses) {
+    if (payment.payerInfoResponses.email) {
+      console.log(`Email: ${payment.payerInfoResponses.email}`);
+    }
+    if (payment.payerInfoResponses.phoneNumber) {
+      console.log(`Phone: ${payment.payerInfoResponses.phoneNumber.number}`);
+    }
+    if (payment.payerInfoResponses.physicalAddress) {
+      const address = payment.payerInfoResponses.physicalAddress;
+      console.log(`Shipping Address: ${address.name.firstName} ${address.name.familyName}, ${address.address1}, ${address.city}, ${address.state} ${address.postalCode}`);
+    }
+  }
+} catch (error) {
+  console.error(`Payment failed: ${error.message}`);
+}
+
+Supported request types include email, name, phone number, physical address, and onchain address. Fields can be marked as optional to avoid canceling the payment if the user declines to provide them.
+
