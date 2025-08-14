@@ -1,0 +1,33 @@
+Base Pay works seamlessly with Wagmi-powered React applications without requiring special integration. The pay() and getPaymentStatus() functions operate independently of wallet connections, though developers can display the user’s connected address using Wagmi’s useAccount() hook if desired.
+
+Here’s a quick example:javascript
+
+import { pay } from '@base-org/account';
+import { useAccount } from 'wagmi';
+
+export function CheckoutButton() {
+  const { address } = useAccount(); // Optional for display
+
+  const handlePayment = async () => {
+    try {
+      const payment = await pay({
+        amount: '5.00',
+        to: '0xYourAddress',
+        testnet: true
+      });
+      console.log('Payment sent:', payment.id);
+    } catch (error) {
+      console.error('Payment failed:', error);
+    }
+  };
+
+  return (
+    <div>
+      {address && <p>Connected: {address}</p>}
+      <button onClick={handlePayment}>
+        Pay $5.00 with Base Pay
+      </button>
+    </div>
+  );
+}
+
