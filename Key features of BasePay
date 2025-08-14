@@ -1,0 +1,8 @@
+USDC Payments: Base Pay uses USDC, a fully-backed digital dollar that settles transactions in seconds with minimal gas fees (often just pennies).
+One-Tap Experience: Payments are initiated with a single click, eliminating the need for cards, foreign exchange fees, or chargebacks.
+Broad Compatibility: Works with any Base Account or Coinbase Account, making it accessible to a wide range of users.
+Gas Sponsorship: Developers charge in USDC, and gas fees are handled automatically, simplifying the user experience.
+Fast Settlement: Most payments confirm in under two seconds, ensuring quick and reliable transactions.
+No Extra Fees: Merchants receive the full payment amount without deductions.
+Optional Data Collection: Developers can collect user information like email, phone numbers, or shipping addresses during the payment process.
+
